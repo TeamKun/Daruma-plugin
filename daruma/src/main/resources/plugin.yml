@@ -1,0 +1,7 @@
+name: Daruma
+version: 1.0.1
+main: daruma.daruma.Daruma
+author: Nemesis5643
+commands:
+  daruma:
+    description: ダルマコマンド
