@@ -10,16 +10,20 @@ import java.util.Objects;
 public final class Daruma extends JavaPlugin{//メインクラス
     static int turn = 0;
     static int time = 0;
+    static int Difficulty = 1000;
     static Location startpoint = null;
     static boolean move = false;
     static boolean check = false;
     static boolean game = false;
     static List<String> list = new ArrayList<>();
     static List<String> Goallist = new ArrayList<>();
+    static List<String> logoutlist = new ArrayList<>();
     @Override
     public void onEnable() {
         Objects.requireNonNull(this.getCommand("Daruma")).setExecutor(new Daruma_commands(this));
-        getServer().getPluginManager().registerEvents(new Hantei(this),this);
+        getServer().getPluginManager().registerEvents(new Events(this),this);
+        getServer().getPluginManager().registerEvents(new Gimmicks(this),this);
+        getServer().getPluginManager().registerEvents(new Kaioken(),this);
         getLogger().info("だるま起動しました");
         // Plugin startup logic
     }

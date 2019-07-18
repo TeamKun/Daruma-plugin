@@ -27,7 +27,8 @@ class Game {
                     for(Player target : Bukkit.getOnlinePlayers()){
                         target.sendTitle(ChatColor.RED+"終了！","",10,15,10);
                         target.teleport(target.getWorld().getSpawnLocation());
-                        target.removeMetadata(Hantei.DATA_KEY,plugin);
+                        target.removeMetadata(Events.DATA_KEY,plugin);
+                        target.setLevel(0);
                     }
                     Daruma.list.clear();
                     new End(plugin).GameEnd();
@@ -39,23 +40,23 @@ class Game {
                 if(!Daruma.game){
                     Daruma.check=false;
                     for(Player target : Bukkit.getOnlinePlayers()) {
-                        target.removeMetadata(Hantei.DATA_KEY, plugin);
+                        target.removeMetadata(Events.DATA_KEY, plugin);
                     }
                     timer.cancel();
                     Daruma.game=false;
                 }
                 if (count == 1) {
-                    getServer().broadcastMessage(ChatColor.WHITE + "だ");
+                    getServer().broadcastMessage("だ");
                 } else if (count == 2) {
-                    getServer().broadcastMessage(ChatColor.WHITE + "る");
+                    getServer().broadcastMessage("る");
                 } else if (count == 3) {
-                    getServer().broadcastMessage(ChatColor.WHITE + "ま");
+                    getServer().broadcastMessage("ま");
                 } else if (count == 4) {
-                    getServer().broadcastMessage(ChatColor.WHITE + "さ");
+                    getServer().broadcastMessage("さ");
                 } else if (count == 5) {
-                    getServer().broadcastMessage(ChatColor.WHITE + "ん");
+                    getServer().broadcastMessage("ん");
                 } else if (count == 6) {
-                    getServer().broadcastMessage(ChatColor.WHITE + "が");
+                    getServer().broadcastMessage("が");
                 } else if (count == 7) {
                     getServer().broadcastMessage(ChatColor.YELLOW + "こ");
                     for(Player target : Bukkit.getOnlinePlayers())target.playSound(target.getLocation(),Sound.BLOCK_NOTE_BLOCK_PLING,1,24);
@@ -85,6 +86,6 @@ class Game {
                 }
             }
         };
-        timer.schedule(task,0,1000);
+        timer.schedule(task,0,Daruma.Difficulty);
     }
 }
