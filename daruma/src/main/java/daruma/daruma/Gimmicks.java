@@ -39,7 +39,7 @@ public class Gimmicks implements Listener {//ギミックの処理。イベン�
         }
     }
     @EventHandler
-    void poison(PlayerMoveEvent event){//ダメージ床を踏んだ時の処理
+    void dontstep(PlayerMoveEvent event){//ダメージ床を踏んだ時の処理
         if((Daruma.game)){
             Player player = event.getPlayer();
             if (player.isOnGround()){
