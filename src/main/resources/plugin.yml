@@ -1,0 +1,16 @@
+name: Daruma
+version: ${project.version}
+main: daruma.daruma.Daruma
+api-version: 1.15
+authors:
+  - nemesis5643
+  - Kamesuta
+
+commands:
+  daruma:
+    permission: daruma
+    usage: /daruma <kaioken|start|setstartpoint|end|rank>
+
+permissions:
+  daruma:
+    default: op
